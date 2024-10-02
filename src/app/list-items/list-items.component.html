@@ -1,8 +1,4 @@
-<div>
-  <p *ngFor="let item of itemsList">
-    {{item}}
-  </p>
-</div>
+
 
 <mat-card *ngFor="let item of itemsList">
   <mat-card-content>
@@ -11,4 +7,7 @@
     <p>Price: {{item.price}}</p>
     <p>Image Url: {{item.imageUrl}} </p>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button (click) = "onDeleteItem(item.id)">Delete</button>
+  </mat-card-actions>
 </mat-card>

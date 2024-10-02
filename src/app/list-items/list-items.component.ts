@@ -19,11 +19,16 @@ export class ListItemsComponent {
   itemsList: Array<any> = [];
 
   constructor(private itemService: ItemService) {
-  this.itemsList.push("Item1");
-  this.itemsList.push("Item2");
-  this.itemsList.push("Item3");
-  this.itemsList.push("Item4");
-  this.itemsList.push("Item5");
+    this.itemService.getItemsList().subscribe(
+      (items:Array<any>) => {
+        console.log("aici?")
+        this.itemsList = items;
+      }
+    );
+  }
 
+  onDeleteItem(id:string) {
+    // alert("attentuinb" + id);
+    this.itemService.deleteItem(id);
   }
 }
