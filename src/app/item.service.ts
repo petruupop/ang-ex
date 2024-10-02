@@ -52,4 +52,17 @@ export class ItemService {
   getItemsList(){
     return this.itemSubject.asObservable(); //as observable ne permite sa dam subscribe si sa fim la zi cu toate modificarile
   }
+
+  updateItem(item:any) {
+    let body={
+      title: item.title,
+      description: item.description,
+      price: item.price,
+      imageUrl: item.imageUrl
+    };
+    this.httpClient.put(this.apiUrl,body).subscribe((response:any) => {
+      console.log(response);
+      this.readItems();
+    })
+  }
 }

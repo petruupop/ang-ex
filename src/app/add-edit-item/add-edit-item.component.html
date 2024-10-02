@@ -49,6 +49,6 @@
     </mat-form-field>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="showValue()">Add the item</button>
+    <button mat-button (click)="submitForm()">{{item==null ? 'Add': 'Edit'}} item</button>
   </mat-card-actions>
 </mat-card>
