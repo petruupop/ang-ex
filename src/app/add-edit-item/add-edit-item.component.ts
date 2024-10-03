@@ -54,7 +54,7 @@ export class AddEditItemComponent implements OnChanges{
 
   submitForm() {
     let body = {
-      id: this.item !=null? this.item.id : "",
+      id: this.item !=null ? this.item.id : "",
       title: this.title,
       description: this.description,
       price: this.price,
