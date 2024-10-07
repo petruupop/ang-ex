@@ -1,10 +1,10 @@
 <div>
-  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="register">
-    <mat-button-toggle value="register">Register</mat-button-toggle>
-    <mat-button-toggle value="login">Login</mat-button-toggle>
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="login">
+    <mat-button-toggle (click)="onAuthTypeChange('login')" value="login">Login</mat-button-toggle>
+    <mat-button-toggle  (click)="onAuthTypeChange('register')" value="register">Register</mat-button-toggle>
   </mat-button-toggle-group>
 
-  <mat-card appearance="outlined">
+  <mat-card *ngIf="authType != 'login'" appearance="outlined">
   <mat-card-header class="margin-bottom-15 margin-bottoom-100">
     <mat-card-title>Register form</mat-card-title>
     <mat-card-subtitle>Fill in all the fields below</mat-card-subtitle>
@@ -55,10 +55,12 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-button (click) ="submitRegisterForm()" >Register</button>
+    <button mat-button (click) ="onAuthTypeChange('login')" >Back to login</button>
+
   </mat-card-actions>
 </mat-card>
 
-  <mat-card appearance="outlined">
+  <mat-card *ngIf="authType =='login'" appearance="outlined">
     <mat-card-header class="margin-bottom-15 margin-bottoom-100">
       <mat-card-title>Login form</mat-card-title>
       <mat-card-subtitle>Provide login details</mat-card-subtitle>
@@ -90,6 +92,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-button (click) ="submitLoginForm()" >Login</button>
+      <button mat-button (click) ="onAuthTypeChange('register')" >Create an account?</button>
     </mat-card-actions>
   </mat-card>
 </div>
